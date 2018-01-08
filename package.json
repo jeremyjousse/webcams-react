@@ -1,0 +1,9 @@
+{
+  "name": "Webcams",
+  "version": "1.0.0",
+  "description": "Webcam directory using React",
+  "main": "index.js",
+  "repository": "https://github.com/jeremyjousse/webcams-react.git",
+  "author": "Jérémy Jousse",
+  "license": "MIT"
+}
