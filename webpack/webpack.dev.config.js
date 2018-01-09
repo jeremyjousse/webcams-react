@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const paths = {
-    DIST: path.resolve(__dirname, '../dist'),
+    DIST: path.resolve(__dirname, '../buid'),
     SRC: path.resolve(__dirname, '../src')
 }
 
@@ -33,6 +33,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(paths.SRC, 'index.html'),
         })
-    ]
+    ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    }
 }
 

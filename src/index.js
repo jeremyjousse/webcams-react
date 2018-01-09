@@ -1,2 +1,14 @@
-console.log('yop 2')
-console.log('yop 3')
+import React, {Component} from 'react'
+import {render} from 'react-dom'
+
+export default class Index extends Component {
+    render() {
+        return (
+            <div>
+                Hello Webcams!
+            </div>
+        )
+    }
+}
+
+render(<Index />, document.getElementById('app'))
