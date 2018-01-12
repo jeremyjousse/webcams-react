@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "./node_modules/.bin/webpack --config ./webpack/webpack.dev.config.js",
+    "dist": "./node_modules/.bin/webpack --config ./webpack/webpack.production.config.js",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.config.js"
   },
   "devDependencies": {
@@ -22,6 +23,7 @@
     "webpack-dev-server": "^2.10.0"
   },
   "dependencies": {
+    "firebase": "^4.8.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
