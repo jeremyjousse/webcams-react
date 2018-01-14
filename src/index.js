@@ -1,6 +1,13 @@
+// @flow
+
 import React, {Component} from 'react'
 import {render} from 'react-dom'
+
 import db from './config/firebase';
+
+import {updateList} from './actions/webcams'
+
+import City from './components/city'
 
 export default class Index extends Component {
     constructor(props) {
@@ -17,21 +24,32 @@ export default class Index extends Component {
             });
         });
     }
+    componentWillUnmount() {
+        //db.messagesRef.on('value').off();
+    }
     render() {
+        const webcamList = Object.keys(this.state.webcams).map(
+            key => (
+             <li key={key} id={key}><City webcam={this.state.webcams[key]} /></li>
+            )
+        )        
         return (
             <div>
                 Hello Webcams!
-                
                 <ul>
-          {
-            this.state.webcams.map(
-                webcam => <li key={webcam.name}>{webcam.name}</li>
-            )
-          }
-                    </ul>
+                    {webcamList}
+                    
+                </ul>
+
             </div>
         )
     }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateMessage: (webcams) => dispatch(updateList(webcams))
+    };
 }
 
 render(<Index />, document.getElementById('app'))
