@@ -5,7 +5,8 @@ import {render} from 'react-dom'
 
 import db from './config/firebase';
 
-import {updateList} from './actions/webcams'
+// import {updateList} from './actions/webcams'
+import { Container } from 'semantic-ui-react'
 
 import City from './components/city'
 
@@ -19,7 +20,7 @@ export default class Index extends Component {
         db.collection("webcams").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(`${doc.id} => ${doc.data()}`);
-                let webcam = { name: doc.data().name, id: doc.id };
+                let webcam = doc.data();
                 this.setState({ webcams: [webcam].concat(this.state.webcams) });
             });
         });
@@ -34,14 +35,15 @@ export default class Index extends Component {
             )
         )        
         return (
-            <div>
-                Hello Webcams!
+            <Container>
+
+                <h1>Hello Webcams!</h1>
                 <ul>
                     {webcamList}
                     
                 </ul>
 
-            </div>
+            </Container>
         )
     }
 }
