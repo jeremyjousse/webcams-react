@@ -23,6 +23,33 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }
+        ],
+        rules: [
+          {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+                plugins: [
+                  // 'transform-class-properties',
+                  // 'transform-es2015-classes',
+                  // 'react-hot-loader/babel'
+                ],
+              }
+            }
+          },
+          {
+            test: /\.css/,
+            use: [
+              { loader: "style-loader" },
+              { loader: "css-loader",
+              options: {
+                sourceMap: true,
+              } }
+            ]
+          }
         ]
     },
     output: {

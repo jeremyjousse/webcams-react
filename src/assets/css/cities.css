@@ -1,0 +1,18 @@
+.webcam-image-container {
+  height: 600px;
+  overflow-x: scroll;
+  width: 800px;
+  margin-bottom: 30px;
+}
+
+.webcam-image {
+  display: block;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0
+}

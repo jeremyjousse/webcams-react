@@ -13,15 +13,15 @@ import City from './components/city'
 export default class Index extends Component {
     constructor(props) {
         super(props);
-        this.state = { webcams: [] };
+        this.state = { cities: [] };
     }
     componentWillMount(){
         console.log('componentWillMount')
-        db.collection("webcams").get().then((querySnapshot) => {
+        db.collection("cities").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(`${doc.id} => ${doc.data()}`);
-                let webcam = doc.data();
-                this.setState({ webcams: [webcam].concat(this.state.webcams) });
+                let city = doc.data();
+                this.setState({ cities: [city].concat(this.state.cities) });
             });
         });
     }
@@ -29,18 +29,18 @@ export default class Index extends Component {
         //db.messagesRef.on('value').off();
     }
     render() {
-        const webcamList = Object.keys(this.state.webcams).map(
+        const cityList = Object.keys(this.state.cities).map(
             key => (
-             <li key={key} id={key}><City webcam={this.state.webcams[key]} /></li>
+             <li key={key} id={key}><City cities={this.state.cities[key]} /></li>
             )
-        )        
+        )
         return (
             <Container>
 
                 <h1>Hello Webcams!</h1>
                 <ul>
-                    {webcamList}
-                    
+                    {cityList}
+
                 </ul>
 
             </Container>
