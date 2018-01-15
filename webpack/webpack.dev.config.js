@@ -33,9 +33,6 @@ module.exports = {
               options: {
                 cacheDirectory: true,
                 plugins: [
-                  // 'transform-class-properties',
-                  // 'transform-es2015-classes',
-                  // 'react-hot-loader/babel'
                 ],
               }
             }

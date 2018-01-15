@@ -22,7 +22,31 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }
-        ]
+        ],
+        rules: [
+            {
+              test: /\.jsx?$/,
+              exclude: /node_modules/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  cacheDirectory: true,
+                  plugins: [
+                  ],
+                }
+              }
+            },
+            {
+              test: /\.css/,
+              use: [
+                { loader: "style-loader" },
+                { loader: "css-loader",
+                options: {
+                  sourceMap: true,
+                } }
+              ]
+            }
+          ]
     },
     output: {
         path: paths.DIST,
