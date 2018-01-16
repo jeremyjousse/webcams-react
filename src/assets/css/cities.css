@@ -1,7 +1,21 @@
+ul {
+  list-style-type: none;
+}
+
+.city-container {
+  border-bottom: 3px #ccc solid;
+  margin-bottom: 30px;
+}
+
+.city-container h3 {
+  text-align: center
+}
+
 .webcam-image-container {
   height: 600px;
   overflow-x: scroll;
-  width: 800px;
+  /* width: 800px; */
+  max-width: 100%;
   margin-bottom: 30px;
 }
 
