@@ -3,6 +3,7 @@
 import { Container } from "semantic-ui-react";
 import React, { Component } from "react";
 import { render } from "react-dom";
+import { Card, Grid } from 'semantic-ui-react'
 
 import db from "./config/firebase";
 
@@ -35,14 +36,22 @@ export default class Index extends Component {
   }
   render() {
     const cityList = Object.keys(this.state.cities).map(key => (
-      <li key={key} id={key}>
+      <Card fluid color='red' header='Option 1' key={key} id={key}>
         <City cities={this.state.cities[key]} />
-      </li>
+      </Card>
     ));
     return (
       <Container>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={16}>
         <h1>Hello Webcams!</h1>
-        <ul>{cityList}</ul>
+        <Card.Group>
+          {cityList}
+        </Card.Group>
+        </Grid.Column>
+        </Grid.Row>
+        </Grid>
       </Container>
     );
   }

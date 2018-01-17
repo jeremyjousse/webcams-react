@@ -12,16 +12,18 @@ ul {
 }
 
 .webcam-image-container {
-  height: 600px;
+  max-height: 600px;
+  height: auto;
   overflow-x: scroll;
-  /* width: 800px; */
   max-width: 100%;
   margin-bottom: 30px;
 }
 
 .webcam-image {
   display: block;
-  height: 600px;
+  max-height: 600px;
+  /* max-width: 80%; */
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }
