@@ -1,0 +1,5 @@
+.ui.menu.fixed,
+.ui.menu.fixed .item:first-child,
+.ui.menu.fixed .item:last-child {
+  border-radius: 0px !important;
+}
