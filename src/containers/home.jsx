@@ -35,9 +35,7 @@ export default class Home extends Component {
   }
   render() {
     const cityList = Object.keys(this.state.cities).map(key => (
-      <Card fluid color="red" key={key} id={key}>
-        <City cities={this.state.cities[key]} />
-      </Card>
+      <City cities={this.state.cities[key]} />
     ));
     return (
       <div>
@@ -47,7 +45,7 @@ export default class Home extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <h1>Hello Webcams!</h1>
-                <Card.Group>{cityList}</Card.Group>
+                {cityList}
               </Grid.Column>
             </Grid.Row>
           </Grid>
