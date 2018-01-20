@@ -3,14 +3,39 @@
 import React, { Component } from "react";
 import { Card, Container, Grid } from "semantic-ui-react";
 
-// import db from "../config/firebase";
+import { auth, provider } from "../config/firebase";
 
-// import City from "../components/city";
+import { connectUser } from "../actions";
+
 import PageMenu from "../components/menu";
 
 import styles from "../assets/css/main.css";
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+  componentDidMount() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.props.connectUser(user);
+      }
+    });
+  }
+  handleChange(e) {}
+  logout() {
+    auth.signOut().then(() => {
+      this.props.logoutUser();
+    });
+  }
+  login() {
+    auth.signInWithPopup(provider).then(result => {
+      const user = result.user;
+      this.props.connectUser(user);
+    });
+  }
   render() {
     return (
       <div>
@@ -20,6 +45,14 @@ export default class Login extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <h1>Login</h1>
+                <div className="wrapper">
+                  <h1>Fun Food Friends</h1>
+                  {this.props.user.user.uid ? (
+                    <button onClick={this.logout}>Log Out</button>
+                  ) : (
+                    <button onClick={this.login}>Log In</button>
+                  )}
+                </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>
