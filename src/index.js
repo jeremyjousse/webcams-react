@@ -10,6 +10,7 @@ import appReducer from "./reducers";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import PageMenuConneced from "./containers/Header";
 import Home from "./containers/home";
 import LoginConnected from "./containers/loginConnected";
 
@@ -25,12 +26,15 @@ export default class Index extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <div>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={LoginConnected} />
-          </div>
-        </Router>
+        <div>
+          <Router>
+            <div>
+              <PageMenuConneced store={store} />
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={LoginConnected} />
+            </div>
+          </Router>
+        </div>
       </Provider>
     );
   }

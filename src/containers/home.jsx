@@ -6,7 +6,6 @@ import { Card, Container, Grid } from "semantic-ui-react";
 import { db } from "../config/firebase";
 
 import City from "../components/city";
-import PageMenu from "../components/menu";
 
 import styles from "../assets/css/main.css";
 
@@ -37,7 +36,6 @@ export default class Home extends Component {
     ));
     return (
       <div>
-        <PageMenu />
         <Container className="ui main">
           <Grid>
             <Grid.Row>

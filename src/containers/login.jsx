@@ -5,7 +5,7 @@ import { Card, Container, Grid } from "semantic-ui-react";
 
 import { auth, provider } from "../config/firebase";
 
-import { connectUser } from "../actions";
+// import { connectUser } from "../actions";
 
 import PageMenu from "../components/menu";
 
@@ -37,9 +37,14 @@ export default class Login extends Component {
     });
   }
   render() {
+    console.log(this.props.authentication);
     return (
       <div>
-        <PageMenu />
+        {/* <PageMenu
+          authentication={this.props.authentication}
+          login={this.login}
+          logout={this.logout}
+        /> */}
         <Container className="ui main">
           <Grid>
             <Grid.Row>
@@ -47,7 +52,7 @@ export default class Login extends Component {
                 <h1>Login</h1>
                 <div className="wrapper">
                   <h1>Fun Food Friends</h1>
-                  {this.props.user.user.uid ? (
+                  {this.props.authentication.user.uid ? (
                     <button onClick={this.logout}>Log Out</button>
                   ) : (
                     <button onClick={this.login}>Log In</button>

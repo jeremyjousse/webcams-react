@@ -5,7 +5,7 @@ import Login from "./login.jsx";
 import { connectUser, logoutUser } from "../actions";
 
 const mapStateToProps = (state, props) => {
-  return { user: state.user };
+  return { authentication: state.authentication };
 };
 
 const mapDispatchToProps = (dispatch, props) =>
