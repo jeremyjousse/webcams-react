@@ -1,0 +1,7 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /cities/{city} {
+      allow read, list, get, create, update, delete: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true
+    }
+  }
+}
